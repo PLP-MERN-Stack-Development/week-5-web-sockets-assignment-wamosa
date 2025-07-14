@@ -76,3 +76,65 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 - [React Documentation](https://react.dev/)
 - [Express.js Documentation](https://expressjs.com/)
 - [Building a Chat Application with Socket.io](https://socket.io/get-started/chat) 
+
+
+
+
+
+
+# 💬 Real-Time Chat Application (Socket.io + React + Node.js)
+
+A full-stack real-time chat application built with **React**, **Node.js**, **Express**, and **Socket.io**. Users can join rooms, send and receive messages in real time, and see who’s online — all in a clean, responsive UI.
+
+---
+
+## 📸 Screenshots
+
+> Replace the links below with your actual screenshots or GIFs.
+
+### Join Page  
+![Join Page](screenshots/join-page.png)
+
+### Chat Room  
+![Chat Room](screenshots/chat-room.png)
+
+---
+
+## 📖 Project Overview
+
+This application demonstrates real-time, bi-directional communication between clients and a server using Socket.io. Users can:
+
+- Join chat rooms with a custom username
+- Send and receive messages instantly
+- See a list of online users per room
+- Receive notifications for other users joining/leaving
+
+Built as part of a Web Sockets assignment during the **PLP MERN Stack Program – Week 5**.
+
+---
+
+## 🛠️ Setup Instructions
+
+### ✅ Prerequisites
+
+- Node.js (v16+ recommended)
+- Git
+- A browser (Chrome, Firefox, etc.)
+
+---
+
+### 🚀 Installation Steps
+
+```bash
+# Clone the repository
+git clone https://github.com/PLP-MERN-Stack-Development/week-5-web-sockets-assignment-wamosa.git
+
+cd week-5-web-sockets-assignment-wamosa
+
+# Install server dependencies
+cd server
+npm install
+
+# Install client dependencies
+cd ../client
+npm install

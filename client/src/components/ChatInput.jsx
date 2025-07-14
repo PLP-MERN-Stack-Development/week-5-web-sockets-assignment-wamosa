@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function ChatInput({ onSend, onTyping }) {
+function ChatInput({ onSend, onTyping, room }) {
   const [text, setText] = useState('');
   
 
@@ -16,7 +16,7 @@ function ChatInput({ onSend, onTyping }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim()) {
-      onSend(text);
+      onSend(text, room);
       setText('');
     }
   };
