@@ -6,26 +6,24 @@ function registerSocketHandlers(io) {
   io.on('connection', (socket) => {
     console.log(`User connected: ${socket.id}`);
 
-    socket.on('user_join', (username) => {
-      users[socket.id] = { username, id: socket.id };
-      io.emit('user_list', Object.values(users));
-      io.emit('user_joined', { username, id: socket.id });
+    socket.on('join_room', ({username, room}) => {
+      users[socket.id] = { username, id: socket.id, room };
+      socket.join(room)
+      io.to(room).emit("user_list", getUsersInRoom(room));
+      io.to(room).emit('user_joined', {username, id: socket.id, room});
       console.log(`${username} joined the chat`);
     });
 
-    socket.on('send_message', (messageData) => {
-      const message = {
-        ...messageData,
+    socket.on('send_message', ({message, room}) => {
+      const msg= {
         id: Date.now(),
-        sender: users[socket.id]?.username || 'Anonymous',
-        senderId: socket.id,
-        timestamp: new Date().toISOString()
+        sender: users[socket.id].username,
+        message,
+        timestamp: new Date().toISOString(),
+        room,
       };
 
-      messages.push(message);
-      if (messages.length > 100) messages.shift();
-
-      io.emit('receive_message', message);
+      io.to(room).emit('receive_message', msg)
     });
 
     socket.on('typing', (isTyping) => {

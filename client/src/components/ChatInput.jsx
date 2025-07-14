@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 function ChatInput({ onSend, onTyping }) {
   const [text, setText] = useState('');
+  
 
   const handleChange = (e) => {
     setText(e.target.value);
